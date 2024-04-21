@@ -9,5 +9,6 @@ RUN pipx install ansible-core==$ANSIBLE_VERSION
 
 RUN mkdir -p /etc/ansible
 COPY ansible.cfg /etc/ansible/ansible.cfg
+RUN ansible-galaxy collection install community.general
 
 WORKDIR /app
