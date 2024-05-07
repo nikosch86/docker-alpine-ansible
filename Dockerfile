@@ -7,6 +7,7 @@ ENV ANSIBLE_VERSION 2.16.6
 ENV PIPX_BIN_DIR /usr/local/bin
 
 RUN pipx install ansible-core==$ANSIBLE_VERSION
+RUN pipx install ansible-lint
 
 RUN apk del .build-dependencies && rm -rf /var/cache/apk/*
 RUN find /usr/lib -name "*.pyc" -or -name "__pycache__" -exec rm {} -rf +
