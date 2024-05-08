@@ -14,6 +14,7 @@ RUN find /usr/lib -name "*.pyc" -or -name "__pycache__" -exec rm {} -rf +
 
 RUN mkdir -p /etc/ansible
 COPY ansible.cfg /etc/ansible/ansible.cfg
-RUN ansible-galaxy collection install community.general
+COPY requirements.yml .
+RUN ansible-galaxy install -r requirements.yml
 
 WORKDIR /app
